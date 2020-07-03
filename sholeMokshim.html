@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{
+            width: 15px;
+            height: 15px;
+            border:1px solid black;
+        }
+        .mokesh{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="brd">    </div>
+    <script>
+        var size=8;
+        var mines_num=7;
+        var board=[];
+        for(let row=0;row<size;row++){
+            board[row]=[];
+            for(let col=0;col<size;col++){
+                if(Math.floor(Math.random()*100) < 10){
+                    board[row][col]=1;
+                } else {
+                    board[row][col]=0;
+                }
+                
+            }
+        }
+        console.log(board);
+        
+
+        let str="";
+        str += "<table>";
+        for(let row=0;row<size;row++){
+            str+="<tr>";
+            for(let col=0;col<size;col++){
+                if(board[row][col]==1){
+                    str+="<td class='mokesh'></td>";
+                } else {
+                    str+="<td></td>";
+                }
+            }
+            str+="</tr>";
+        }
+        str += "</table>";
+        document.getElementById("brd").innerHTML=str;
+    </script>
+
+</body>
+</html>
